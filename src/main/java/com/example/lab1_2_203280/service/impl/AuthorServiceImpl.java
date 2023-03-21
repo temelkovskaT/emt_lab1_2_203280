@@ -25,6 +25,6 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Optional<Author> listById(Long id) {
-        return this.authorRepository.findAll().stream().filter(a -> Objects.equals(a.getId(), id)).findFirst();
+        return this.authorRepository.findById(id);
     }
 }

@@ -3,14 +3,19 @@ package com.example.lab1_2_203280.model;
 
 import com.example.lab1_2_203280.model.enumerations.Category;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
 
 
 @Data
 @Entity
 public class Book {
 
+    @javax.persistence.Id
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,6 +29,8 @@ public class Book {
 
     private Integer availableCopies;
 
+    private boolean isRented;
+
     public Book() {
     }
 
@@ -32,5 +39,8 @@ public class Book {
         this.category = category;
         this.author = author;
         this.availableCopies = availableCopies;
+        this.isRented = false;
     }
+
+
 }
