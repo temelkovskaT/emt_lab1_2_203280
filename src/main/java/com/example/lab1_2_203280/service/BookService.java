@@ -17,7 +17,6 @@ public interface BookService {
 
     Optional<Book> findById(Long id);
 
-    Optional<Book> findByNameOrAuthor(String text);
 
     Optional<Book> create(String name, Category category,Long authorId,  Integer availableCopies);
 
@@ -29,7 +28,7 @@ public interface BookService {
 
     void deleteById(Long id);
 
-    void markAsRented(Long id);
+    Optional<Book> markAsRented(Long id);
 
 
     /*

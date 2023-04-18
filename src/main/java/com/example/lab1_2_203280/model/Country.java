@@ -1,7 +1,6 @@
 package com.example.lab1_2_203280.model;
 
 import lombok.Data;
-import lombok.Generated;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,9 +21,5 @@ public class Country {
     public Country() {
     }
 
-    public Country(Long id, String name, String continent) {
-        this.id = id;
-        this.name = name;
-        this.continent = continent;
-    }
+
 }

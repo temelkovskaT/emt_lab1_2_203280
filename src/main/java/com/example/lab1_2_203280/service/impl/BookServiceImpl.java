@@ -39,10 +39,7 @@ public class BookServiceImpl implements BookService {
 
     }
 
-    @Override
-    public Optional<Book> findByNameOrAuthor(String text) {
-        return bookRepository.findByNameOrAuthor(text);
-    }
+
 
     @Override
     public Optional<Book> create(String name, Category category, Long authorId, Integer availableCopies) {
@@ -108,9 +105,11 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void markAsRented(Long id) {
+    public Optional<Book> markAsRented(Long id) {
         Book book = this.bookRepository.findById(id).orElseThrow(()-> new BookNotFoundException(id));
-        book.setRented(true);
+        //book.setRented(true);
         book.setAvailableCopies(book.getAvailableCopies() - 1);
+        this.bookRepository.save(book);
+        return Optional.of(book);
     }
 }
